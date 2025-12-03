@@ -5,7 +5,7 @@
 - Công cụ này viết chủ yếu bằng ngôn ngữ C++, tập trung vào năng suất. Hiện tại C-fetch chỉ hỗ trợ trên hệ điều hành Windows.
 
 ## Tính năng 
-- Hiển thị thông tin hệ điều hành, CPU, RAM, thiết bị, kernel,...
+- Hiển thị thông tin hệ điều hành, Cpu, Ram, kernel,...
 - Lấy thông tin hệ thống thông qua Windows API.
 - Hiển thị đẹp bằng màu sắc ANSI trên CMD/Powershell.
 - Kiểu trình bày gọn, giống phong cách của neofetch / winfetch.
