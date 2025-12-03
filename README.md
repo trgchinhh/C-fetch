@@ -11,7 +11,7 @@
 - Kiểu trình bày gọn, giống phong cách của neofetch / winfetch.
 
 ## Cài đặt
-### Cách 1 
+### Cách 1 chạy `C-fetch.exe`
 - B1: Tải file `C-fetch.exe` về máy
 - B2: Chọn đường dẫn đến file.exe và bỏ vào biến môi trường
   (-) Cách mở biến môi trường 
@@ -19,14 +19,15 @@
   + Paste đường dãn đến file C-fetch.exe vào ô
   + Nhấn ok cho đến khi thoát hết.
 - Mở CMD hoặc Powershell gõ `C-fetch.exe` nó sẽ hiện chương trình.
-### Cách 2 
-(*) Trường hợp chạy bằng GNU/CLANG
+
+### Cách 2 build và chạy `C-fetch.cpp` 
+(1) Trường hợp chạy bằng GNU/CLANG
 - Nếu chạy file.cpp
 - Mở CMD/Powershell nhập lệnh biên dịch 
 ```
 g++ c-fetch.cpp -o c-fetch -lwbemuuid -lole32 -loleaut32 -luuid -liphlpapi -lws2_32 -w
 ```
-(*) Trường hợp chạy bằng MSVC
+(2) Trường hợp chạy bằng MSVC
 - Cần link các thư viện sau trước khi chạy
 ```
 wbemuuid, ole32, oleaut32, uuid, iphlpapi, ws2_32
@@ -41,5 +42,5 @@ wbemuuid, ole32, oleaut32, uuid, iphlpapi, ws2_32
 - Tôi sẽ cố gắng ra bản nâng cấp sớm nhất.   
 
 ## Ghi chú 
-- Đây là phiên bản đầu tiên có thể bị sai sót.
-- Rất mong nhiều sự đóng góp để phát triển.
+- Đây là phiên bản đầu tiên có thể có sai sót.
+- Rất hoan nghênh nhiều góp ý sự đóng góp để chương trình phát triển.
