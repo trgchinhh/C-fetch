@@ -11,6 +11,7 @@
 /************************************************************\
   * Chương trình lấy cảm hứng từ Winfetch (LPTSTR)
   * Tính năng: liệt kê cấu hình và thông tin máy, ...
+  * Hiển thị dưới dạng console rành mạch và rõ ràng
   * Lưu ý: Đây là phiên bản đầu tiên nên còn nhiều thiếu sót
   * Chúng tôi sẽ cố gắng ra phiên bản mới sớm nhất  
 \************************************************************/
@@ -183,7 +184,7 @@ struct ThongTinCPU {
 ThongTinCPU lay_cpu(){
     ThongTinCPU cpu;
     cpu.ten_cpu = cat_khoang_trang(doc_registry(HKEY_LOCAL_MACHINE,"HARDWARE\\DESCRIPTION\\System\\CentralProcessor\\0","ProcessorNameString"));
-    if(cpu.ten_cpu.empty()) cpu.ten_cpu="Unknown CPU";
+    if(cpu.ten_cpu.empty()) cpu.ten_cpu="Không có thông tin";
     SYSTEM_INFO si; GetSystemInfo(&si);
     cpu.so_nhan = si.dwNumberOfProcessors;
     DWORD mhz=0; DWORD sz=sizeof(mhz);
@@ -243,7 +244,7 @@ string lay_ip(){
     WSADATA wsa; WSAStartup(MAKEWORD(2,2),&wsa);
     ULONG bufLen=0, flags=GAA_FLAG_INCLUDE_PREFIX; GetAdaptersAddresses(AF_UNSPEC,flags,NULL,NULL,&bufLen);
     vector<BYTE> buf(bufLen); IP_ADAPTER_ADDRESSES* addrs = (IP_ADAPTER_ADDRESSES*)buf.data();
-    if(GetAdaptersAddresses(AF_UNSPEC,flags,NULL,addrs,&bufLen)!=NO_ERROR){ WSACleanup(); return "Unknown IP"; }
+    if(GetAdaptersAddresses(AF_UNSPEC,flags,NULL,addrs,&bufLen)!=NO_ERROR){ WSACleanup(); return "Không có thông tin"; }
     for(IP_ADAPTER_ADDRESSES* a=addrs;a;a=a->Next){
         if(a->OperStatus!=IfOperStatusUp || a->IfType==IF_TYPE_SOFTWARE_LOOPBACK) continue;
         for(IP_ADAPTER_UNICAST_ADDRESS* ua=a->FirstUnicastAddress;ua;ua=ua->Next){
