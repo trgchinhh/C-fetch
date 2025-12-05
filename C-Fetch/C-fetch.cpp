@@ -398,6 +398,26 @@ vector<string> banner_windows_11 = {
     "                                    ",
 };
 
+vector<string> banner_NTC = {
+    "                                    ",
+    "                                    ",
+    "                                    ",
+    "                                    ",
+    "                                    ",
+    "    ███╗   ██╗████████╗ ██████╗     ",
+    "    ████╗  ██║╚══██╔══╝██╔════╝     ",
+    "    ██╔██╗ ██║   ██║   ██║          ",
+    "    ██║╚██╗██║   ██║   ██║          ",
+    "    ██║ ╚████║   ██║   ╚██████╗     ",
+    "    ╚═╝  ╚═══╝   ╚═╝    ╚═════╝     ",
+    "                                    ",
+    "                                    ",
+    "                                    ",
+    "                                    ",
+    "                                    ",
+};
+
+
 /****************************************************\
 \****************************************************/
 
@@ -424,9 +444,9 @@ void chuong_trinh_chinh(){
     vector<string> dong_thong_tin = {
         CYAN + user.ten_nguoi_dung + RESET + "@" + CYAN + user.ten_may + RESET,
         string((user.ten_nguoi_dung + "@" + user.ten_may).size(), '-'),
-        string(YELLOW) + "◉" + RESET,
-        string(YELLOW) + "├ Hệ điều hành: " + RESET + sys.he_dieu_hanh,
-        string(YELLOW) + "├ Kernel: " + RESET + sys.kernel,
+        //string(YELLOW) + "◉" + RESET,
+        string(YELLOW) + "┌ Hệ điều hành: " + RESET + sys.he_dieu_hanh,
+        //string(YELLOW) + "├ Kernel: " + RESET + sys.kernel,
         string(YELLOW) + "├ Cpu hoạt động: " + RESET + sys.thoi_gian_chay,
         string(YELLOW) + "├ Shell: " + RESET + sys.shell,
         string(YELLOW) + "├ Màn hình: " + RESET + disp,
@@ -434,16 +454,16 @@ void chuong_trinh_chinh(){
         string(YELLOW) + "├ GPU: " + RESET + gpu,
         string(YELLOW) + "├ RAM: " + RESET + chuyen_bytes_sang_gb(mem.ram_da_dung) + " / " + chuyen_bytes_sang_gb(mem.ram_tong) 
                        + " GB (" + GREEN + to_string(phan_tram_ram_da_dung) + "%" + RESET + ")",
-        string(YELLOW) + "├ Swap: " + RESET + chuyen_bytes_sang_gb(mem.swap_da_dung) + " / " + chuyen_bytes_sang_gb(mem.swap_tong)
-                       + " GB (" + GREEN + to_string(phan_tram_swap_da_dung) + "%" + RESET + ")",
+        //string(YELLOW) + "├ Swap: " + RESET + chuyen_bytes_sang_gb(mem.swap_da_dung) + " / " + chuyen_bytes_sang_gb(mem.swap_tong)
+        //               + " GB (" + GREEN + to_string(phan_tram_swap_da_dung) + "%" + RESET + ")",
         string(YELLOW) + "├ Ổ C: " + RESET + (c.tong ? chuyen_bytes_sang_gb(c.da_dung) + " / " + chuyen_bytes_sang_gb(c.tong) : "Không tìm thấy")
                        + " GB (" + GREEN + to_string(phan_tram_c_da_dung) + "%" + RESET + ")",
         string(YELLOW) + "├ Ổ D: " + RESET + (d.tong ? chuyen_bytes_sang_gb(d.da_dung) + " / " + chuyen_bytes_sang_gb(d.tong) : "Không tìm thấy")
                        + " GB (" + GREEN + to_string(phan_tram_d_da_dung) + "%" + RESET + ")",
         string(YELLOW) + "├ Ngôn ngữ: " + RESET + language,
-        string(YELLOW) + "├ Pin: " + RESET + GREEN + pin.substr(0, 3) + RESET + pin.substr(3, 25) + RESET,
-        string(YELLOW) + "├ Local IP (Wi-Fi): " + RESET + ip,
-        string(YELLOW) + "◉" + RESET,
+        string(YELLOW) + "├ Pin: " + RESET + GREEN + pin.substr(0, 4) + RESET + pin.substr(4, 25) + RESET,
+        string(YELLOW) + "└ Local IP (Wi-Fi): " + RESET + ip,
+        //string(YELLOW) + "◉" + RESET,
         khoi_mau(BG_BLACK) + khoi_mau(BG_RED) + khoi_mau(BG_GREEN) + khoi_mau(BG_YELLOW)  +
         khoi_mau(BG_BLUE) + khoi_mau(BG_MAGENTA) + khoi_mau(BG_CYAN) + khoi_mau(BG_WHITE),
         khoi_mau(BG_BRIGHT_BLACK) + khoi_mau(BG_BRIGHT_RED) + khoi_mau(BG_BRIGHT_GREEN) + khoi_mau(BG_BRIGHT_YELLOW)  +
@@ -456,6 +476,7 @@ void chuong_trinh_chinh(){
     else if(ten_windows == "Windows 8.1" || ten_windows == "Windows 8" || ten_windows == "Windows 10") banner = banner_windows_8_to_10;
     else if(ten_windows == "Windows 11") banner = banner_windows_11;
     else banner = banner_windows_2000;
+    banner = banner_NTC;
 
     size_t so_dong_toi_da = max(banner.size(), dong_thong_tin.size());
     for (size_t i = 0; i < so_dong_toi_da; ++i) {
