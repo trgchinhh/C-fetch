@@ -398,26 +398,6 @@ vector<string> banner_windows_11 = {
     "                                    ",
 };
 
-vector<string> banner_NTC = {
-    "                                    ",
-    "                                    ",
-    "                                    ",
-    "                                    ",
-    "                                    ",
-    "    ███╗   ██╗████████╗ ██████╗     ",
-    "    ████╗  ██║╚══██╔══╝██╔════╝     ",
-    "    ██╔██╗ ██║   ██║   ██║          ",
-    "    ██║╚██╗██║   ██║   ██║          ",
-    "    ██║ ╚████║   ██║   ╚██████╗     ",
-    "    ╚═╝  ╚═══╝   ╚═╝    ╚═════╝     ",
-    "                                    ",
-    "                                    ",
-    "                                    ",
-    "                                    ",
-    "                                    ",
-};
-
-
 /****************************************************\
 \****************************************************/
 
@@ -476,7 +456,6 @@ void chuong_trinh_chinh(){
     else if(ten_windows == "Windows 8.1" || ten_windows == "Windows 8" || ten_windows == "Windows 10") banner = banner_windows_8_to_10;
     else if(ten_windows == "Windows 11") banner = banner_windows_11;
     else banner = banner_windows_2000;
-    banner = banner_NTC;
 
     size_t so_dong_toi_da = max(banner.size(), dong_thong_tin.size());
     for (size_t i = 0; i < so_dong_toi_da; ++i) {
@@ -504,3 +483,4 @@ C_FETCH {
         return -1;
     #endif
 }
+
